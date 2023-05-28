@@ -1,0 +1,8 @@
+{
+    "files.associations": {
+        "minitalk.h": "c",
+        "cmath": "c",
+        "complex": "c"
+    },
+    "C_Cpp.errorSquiggles": "disabled"
+}
