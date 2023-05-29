@@ -6,37 +6,86 @@
 /*   By: hlabouit <hlabouit@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/24 19:29:53 by hlabouit          #+#    #+#             */
-/*   Updated: 2023/05/28 01:46:03 by hlabouit         ###   ########.fr       */
+/*   Updated: 2023/05/29 22:52:25 by hlabouit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minitalk.h"
-#include <math.h>
 
-// void	server()
+int	pwr(int number, int power)
+{
+	int result;
+	
+	result = 1;
+	while (power)
+	{
+		result = result * number;
+		power--;
+	}
+	return (result);
+}
+
+// int	convert_to_decimal(int binary)
+// {
+// 	int decimal;
+// 	int reminder;
+// 	int i;
+
+// 	i = 0;
+// 	decimal = 0;
+// 	while (binary != 0)
+// 	{
+// 		reminder = binary % 10;
+// 		binary = binary / 10;
+// 		decimal = decimal + reminder * pwr(2, i);
+// 		i++;
+// 	}
+// 	return (decimal);
+// }
+int convert_to_decimal(int binary)
+{
+    int decimal = 0;
+    int base = 1;
+
+    while (binary != 0)
+    {
+        int digit = binary % 10;
+        decimal += digit * base;
+        base *= 2;
+        binary /= 10;
+    }
+
+    return decimal;
+}
 
 
 void track_signal(int signal, siginfo_t *info, void *context)
 {
-	char byte[8];
+	static char byte[9];
 	static int	i = 0;
+	char c;
 
-	byte[7] = '\0';
-	while (i < 8)
+	if (signal == SIGUSR1)
 	{
-		if (signal == SIGUSR1)
-			byte[i] = '0';
-		else if (signal == SIGUSR2)
-			byte[i] = '1';
+		byte[i] = '0';
 		i++;
 	}
-	printf("%s\n", byte);
+	else if (signal == SIGUSR2)
+	{
+		byte[i] = '1';
+		i++;
+	}
+	if (i == 8)
+	{
+		c = convert_to_decimal(ft_atoi(byte));
+		write(1, &c, 1);
+		i = 0;
+	}
 }
 
 
 int main(int ac, char **av)
 {
-	printf("%f\n",pow(2, 3));
 	pid_t pid;
 	pid = getpid();
 	ft_putnbr_fd(pid, 1);
