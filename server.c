@@ -6,7 +6,7 @@
 /*   By: hlabouit <hlabouit@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/24 19:29:53 by hlabouit          #+#    #+#             */
-/*   Updated: 2023/05/29 22:52:25 by hlabouit         ###   ########.fr       */
+/*   Updated: 2023/05/30 15:33:24 by hlabouit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,39 +25,23 @@ int	pwr(int number, int power)
 	return (result);
 }
 
-// int	convert_to_decimal(int binary)
-// {
-// 	int decimal;
-// 	int reminder;
-// 	int i;
-
-// 	i = 0;
-// 	decimal = 0;
-// 	while (binary != 0)
-// 	{
-// 		reminder = binary % 10;
-// 		binary = binary / 10;
-// 		decimal = decimal + reminder * pwr(2, i);
-// 		i++;
-// 	}
-// 	return (decimal);
-// }
-int convert_to_decimal(int binary)
+int	convert_to_decimal(int binary)
 {
-    int decimal = 0;
-    int base = 1;
+	int decimal;
+	int reminder;
+	int i;
 
-    while (binary != 0)
-    {
-        int digit = binary % 10;
-        decimal += digit * base;
-        base *= 2;
-        binary /= 10;
-    }
-
-    return decimal;
+	i = 0;
+	decimal = 0;
+	while (binary != 0)
+	{
+		reminder = binary % 10;
+		binary = binary / 10;
+		decimal = decimal + reminder * pwr(2, i);
+		i++;
+	}
+	return (decimal);
 }
-
 
 void track_signal(int signal, siginfo_t *info, void *context)
 {
