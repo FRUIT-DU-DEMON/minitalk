@@ -6,7 +6,7 @@
 /*   By: hlabouit <hlabouit@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 16:26:38 by hlabouit          #+#    #+#             */
-/*   Updated: 2023/05/30 17:20:33 by hlabouit         ###   ########.fr       */
+/*   Updated: 2023/05/31 01:49:21 by hlabouit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ char	*convert_to_binary(unsigned char c)
 		byte[i] = reminder + '0';
 		i--;
 	}
-	printf("%s\n", byte);
+	// printf("%s\n", byte);
 	// exit(0);
 	return (byte);
 }
@@ -52,7 +52,7 @@ void	client(pid_t pid, char *message)
 			else if (byte[j] == '1')
 				kill(pid, SIGUSR2);
 			j++;
-			usleep(800);
+			usleep(20000);
 		}
 		i++;
 	}
@@ -60,5 +60,6 @@ void	client(pid_t pid, char *message)
 
 int main(int ac, char **av)
 {
-	client(19269, "ayo .. this message is from casablanca to lagos\n");
+	current_pid = getpid();
+	client(5407, "ayo .. this message is from casablanca to lagos\n");
 }

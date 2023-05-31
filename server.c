@@ -6,7 +6,7 @@
 /*   By: hlabouit <hlabouit@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/24 19:29:53 by hlabouit          #+#    #+#             */
-/*   Updated: 2023/05/30 15:33:24 by hlabouit         ###   ########.fr       */
+/*   Updated: 2023/05/31 01:58:40 by hlabouit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,7 @@ void track_signal(int signal, siginfo_t *info, void *context)
 	static int	i = 0;
 	char c;
 
+	printf("%d~~~~%d\n", current_pid, info->si_pid);
 	if (signal == SIGUSR1)
 	{
 		byte[i] = '0';

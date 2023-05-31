@@ -6,7 +6,7 @@
 /*   By: hlabouit <hlabouit@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/19 21:49:32 by hlabouit          #+#    #+#             */
-/*   Updated: 2023/05/30 17:20:01 by hlabouit         ###   ########.fr       */
+/*   Updated: 2023/05/31 01:42:07 by hlabouit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,5 +16,7 @@
 # include <signal.h>
 
 # include "libft/libft.h"
+
+pid_t current_pid ;
 
 #endif
