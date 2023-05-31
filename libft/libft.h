@@ -6,7 +6,7 @@
 /*   By: hlabouit <hlabouit@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/20 01:36:18 by hlabouit          #+#    #+#             */
-/*   Updated: 2023/05/30 17:18:50 by hlabouit         ###   ########.fr       */
+/*   Updated: 2023/05/31 18:24:53 by hlabouit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,7 @@ int		ft_strlen(char *s);
 int		ft_atoi(const char *str);
 int		ft_isdigit(int c);
 size_t	ft_strlcpy(char *dst, char *src, size_t dstsize);
-char	*ft_strjoin(char *s1, char *s2);
 char	**ft_split(char *s, char c);
 void	ft_putstr_fd(char *s, int fd);
 void	ft_putnbr_fd(int n, int fd);
-char	*ft_strdup(char *s1);
 #endif
