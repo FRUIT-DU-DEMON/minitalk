@@ -6,12 +6,12 @@
 #    By: hlabouit <hlabouit@student.1337.ma>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/20 02:20:50 by hlabouit          #+#    #+#              #
-#    Updated: 2023/05/31 18:26:55 by hlabouit         ###   ########.fr        #
+#    Updated: 2023/06/01 16:10:01 by hlabouit         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = 	libft.a
-SRCS =  ft_putstr_fd.c ft_putnbr_fd.c ft_split.c  \
+SRCS =  ft_putstr_fd.c ft_putnbr_fd.c ft_split.c ft_strjoin.c \
 		ft_strlen.c ft_strlcpy.c ft_atoi.c ft_isdigit.c\
 
 OBJS = $(SRCS:.c=.o)

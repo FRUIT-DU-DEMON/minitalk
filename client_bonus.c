@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   client.c                                           :+:      :+:    :+:   */
+/*   client_bonus.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hlabouit <hlabouit@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/23 16:26:38 by hlabouit          #+#    #+#             */
-/*   Updated: 2023/06/01 15:40:59 by hlabouit         ###   ########.fr       */
+/*   Created: 2023/06/01 15:40:42 by hlabouit          #+#    #+#             */
+/*   Updated: 2023/06/01 23:52:24 by hlabouit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,5 +60,5 @@ void	client(pid_t pid, char *message)
 
 int main(int ac, char **av)
 {
-	client(71029, "ayo .. this message is from casablanca to lagos\n");
+	client(80675, "ayo..this message is from Morocco to Cuba");
 }
