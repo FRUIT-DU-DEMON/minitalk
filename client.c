@@ -6,13 +6,13 @@
 /*   By: hlabouit <hlabouit@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 16:26:38 by hlabouit          #+#    #+#             */
-/*   Updated: 2023/06/04 01:48:34 by hlabouit         ###   ########.fr       */
+/*   Updated: 2023/06/04 18:18:06 by hlabouit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minitalk.h"
 
-void	client(pid_t pid, char *message)
+void_t pid, char *message)
 {
 	char	*byte;
 	int		i;
@@ -36,7 +36,20 @@ void	client(pid_t pid, char *message)
 	}
 }
 
-int	main(void)
+int	main(int ac, char **av)
 {
-	client(57320, "ayo .. this message is from casablanca to lagos\n");
+	int i;
+
+	i = 0;
+	if (ac != 3)
+		return 0;
+	
+	while (av[1][i])
+	{
+		if (ft_isdigit(av[1][i]) != 1)
+			return 0;
+		i++;
+	}
+	
+	client(atoi(av[1]), av[2]);
 }

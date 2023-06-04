@@ -6,7 +6,7 @@
 /*   By: hlabouit <hlabouit@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/01 16:51:19 by hlabouit          #+#    #+#             */
-/*   Updated: 2023/06/04 00:20:32 by hlabouit         ###   ########.fr       */
+/*   Updated: 2023/06/04 17:02:19 by hlabouit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ void	server(int signal, siginfo_t *info, void *context)
 	output_message(byte, &i);
 }
 
-int	main(int ac, char **av)
+int	main(void)
 {
 	pid_t				pid;
 	struct sigaction	sig_a;
@@ -46,6 +46,7 @@ int	main(int ac, char **av)
 	ft_putnbr_fd(pid, 1);
 	ft_putstr_fd("\n", 1);
 	sig_a.sa_sigaction = server;
+	sig_a.sa_flags = SA_SIGINFO;
 	sigaction(SIGUSR1, &sig_a, NULL);
 	sigaction(SIGUSR2, &sig_a, NULL);
 	while (1)

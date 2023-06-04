@@ -6,7 +6,7 @@
 /*   By: hlabouit <hlabouit@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/01 15:40:42 by hlabouit          #+#    #+#             */
-/*   Updated: 2023/06/04 01:48:23 by hlabouit         ###   ########.fr       */
+/*   Updated: 2023/06/04 17:10:54 by hlabouit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ void	client(pid_t pid, char *message)
 	}
 }
 
-int	main(int ac, char **av)
+int	main(void)
 {
-	client(57320, "😘😗🤨🧐ayo😋😛..this m😋😛essage is f😋😛rom 😋Morocco to Cuba😋");
+	client(55514, "😘😗🤨🧐ayo😋😛..this m😋😛essage is f😋😛rom 😋Morocco to Cuba😋");
 }

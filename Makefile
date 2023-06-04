@@ -6,26 +6,33 @@
 #    By: hlabouit <hlabouit@student.1337.ma>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/06/04 00:32:53 by hlabouit          #+#    #+#              #
-#    Updated: 2023/06/04 01:47:19 by hlabouit         ###   ########.fr        #
+#    Updated: 2023/06/04 17:27:43 by hlabouit         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME1 = client
 NAME2 = server
-SRCS =  useful_functions.c \
+
+SRCS1 = client.c useful_functions.c \
+	   $(addprefix libft/, ft_putstr_fd.c ft_putnbr_fd.c \
+	   ft_strlen.c ft_atoi.c ft_isdigit.c)
+	
+SRCS2 = server.c useful_functions.c \
 	   $(addprefix libft/, ft_putstr_fd.c ft_putnbr_fd.c \
 	   ft_strlen.c ft_atoi.c ft_isdigit.c)
 		
-OBJS = $(SRCS:.c=.o)
+OBJS1 = $(SRCS1:.c=.o)
+OBJS2 = $(SRCS2:.c=.o)
 CC =  cc
 CFLAGS = -Werror -Wall -Wextra
 
-all: $(NAME1) $(NAME2) libft/libft.a
+all: $(NAME2) $(NAME1)
 
-$(NAME1): $(OBJS) libft/libft.a
-	$(CC) $(CFLAGS) $(OBJS) libft/libft.a client.c -o $(NAME1)
-$(NAME2): $(OBJS) libft/libft.a
-	$(CC) $(CFLAGS) $(OBJS) libft/libft.a server.c -o $(NAME2)
+$(NAME1): $(OBJS1) libft/libft.a
+	$(CC) $(CFLAGS) $(OBJS1) libft/libft.a -o $(NAME1)
+
+$(NAME2): $(OBJS2) libft/libft.a
+	$(CC) $(CFLAGS) $(OBJS2) libft/libft.a -o $(NAME2)
 
 libft/libft.a:
 	@$(MAKE) -C libft
@@ -35,7 +42,7 @@ libft/libft.a:
 
 clean:
 	@$(MAKE) clean -C libft
-	@rm -f $(OBJS) client.o server.o
+	@rm -f $(OBJS1) $(OBJS2) client.o server.o
 
 fclean: clean
 	@$(MAKE) fclean -C libft

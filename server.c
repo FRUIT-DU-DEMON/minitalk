@@ -6,7 +6,7 @@
 /*   By: hlabouit <hlabouit@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/24 19:29:53 by hlabouit          #+#    #+#             */
-/*   Updated: 2023/06/04 01:22:20 by hlabouit         ###   ########.fr       */
+/*   Updated: 2023/06/04 17:07:23 by hlabouit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@ void	server(int signal, siginfo_t *info, void *context)
 {
 	static char	byte[9];
 	static int	i = 0;
-	char c;
 
 	(void)context;
 	if (g_pid != info->si_pid)
@@ -35,12 +34,7 @@ void	server(int signal, siginfo_t *info, void *context)
 		byte[i] = '1';
 		i++;
 	}
-	if (i == 8)
-	{
-		c = convert_to_decimal(ft_atoi(byte, 0));
-		write(1, &c, 1);
-		i = 0;
-	}
+	output_message(byte, &i);
 }
 
 int	main(void)
@@ -48,12 +42,14 @@ int	main(void)
 	pid_t				pid;
 	struct sigaction	sig_a;
 
-	pid = getpid();
-	ft_putnbr_fd(pid, 1);
-	ft_putstr_fd("\n", 1);
+	sig_a.sa_flags = SA_SIGINFO;
 	sig_a.sa_sigaction = server;
 	sigaction(SIGUSR1, &sig_a, NULL);
 	sigaction(SIGUSR2, &sig_a, NULL);
+
+	pid = getpid();
+	ft_putnbr_fd(pid, 1);
+	ft_putstr_fd("\n", 1);
 	while (1)
 	{
 		pause();
