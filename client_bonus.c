@@ -6,33 +6,11 @@
 /*   By: hlabouit <hlabouit@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/01 15:40:42 by hlabouit          #+#    #+#             */
-/*   Updated: 2023/06/01 23:52:24 by hlabouit         ###   ########.fr       */
+/*   Updated: 2023/06/04 01:48:23 by hlabouit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minitalk.h"
-
-char	*convert_to_binary(unsigned char c)
-{
-	char	*byte;
-	int		reminder;
-	int		i;
-
-	byte = malloc(9);
-	byte[8] = '\0';
-	reminder = 1;
-	i = 7;
-	while (i >= 0)
-	{
-		reminder = c % 2;
-		c = c / 2;
-		byte[i] = reminder + '0';
-		i--;
-	}
-	// printf("%s\n", byte);
-	// exit(0);
-	return (byte);
-}
 
 void	client(pid_t pid, char *message)
 {
@@ -52,13 +30,13 @@ void	client(pid_t pid, char *message)
 			else if (byte[j] == '1')
 				kill(pid, SIGUSR2);
 			j++;
-			usleep(9000);
+			usleep(500);
 		}
 		i++;
 	}
 }
 
-int main(int ac, char **av)
+int	main(int ac, char **av)
 {
-	client(80675, "ayo..this message is from Morocco to Cuba");
+	client(57320, "😘😗🤨🧐ayo😋😛..this m😋😛essage is f😋😛rom 😋Morocco to Cuba😋");
 }

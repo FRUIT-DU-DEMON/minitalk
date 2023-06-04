@@ -6,33 +6,11 @@
 /*   By: hlabouit <hlabouit@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 16:26:38 by hlabouit          #+#    #+#             */
-/*   Updated: 2023/06/01 15:40:59 by hlabouit         ###   ########.fr       */
+/*   Updated: 2023/06/04 01:48:34 by hlabouit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minitalk.h"
-
-char	*convert_to_binary(unsigned char c)
-{
-	char	*byte;
-	int		reminder;
-	int		i;
-
-	byte = malloc(9);
-	byte[8] = '\0';
-	reminder = 1;
-	i = 7;
-	while (i >= 0)
-	{
-		reminder = c % 2;
-		c = c / 2;
-		byte[i] = reminder + '0';
-		i--;
-	}
-	// printf("%s\n", byte);
-	// exit(0);
-	return (byte);
-}
 
 void	client(pid_t pid, char *message)
 {
@@ -58,7 +36,7 @@ void	client(pid_t pid, char *message)
 	}
 }
 
-int main(int ac, char **av)
+int	main(void)
 {
-	client(71029, "ayo .. this message is from casablanca to lagos\n");
+	client(57320, "ayo .. this message is from casablanca to lagos\n");
 }
