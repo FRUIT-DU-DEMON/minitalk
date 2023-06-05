@@ -6,7 +6,7 @@
 /*   By: hlabouit <hlabouit@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/01 15:40:42 by hlabouit          #+#    #+#             */
-/*   Updated: 2023/06/05 17:56:46 by hlabouit         ###   ########.fr       */
+/*   Updated: 2023/06/05 18:30:18 by hlabouit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,21 +43,21 @@ void	check_errors(int ac, char **av)
 	i = 0;
 	if (ac != 3)
 	{
-		ft_putstr_fd("invalid arguments", 2);
+		ft_putstr_fd("invalid arguments\n", 2);
 		exit(EXIT_FAILURE);
 	}
 	while (av[1][i])
 	{
 		if (ft_isdigit(av[1][i]) != 1)
 		{
-			ft_putstr_fd("invalid pid", 2);
+			ft_putstr_fd("invalid pid\n", 2);
 			exit(EXIT_FAILURE);
 		}
 		i++;
 	}
 	if (ft_atoi(av[1]) < 0)
 	{
-		ft_putstr_fd("invalid pid", 2);
+		ft_putstr_fd("invalid pid\n", 2);
 		exit(EXIT_FAILURE);
 	}
 }
