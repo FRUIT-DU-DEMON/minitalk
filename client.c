@@ -6,7 +6,7 @@
 /*   By: hlabouit <hlabouit@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 16:26:38 by hlabouit          #+#    #+#             */
-/*   Updated: 2023/06/05 02:37:41 by hlabouit         ###   ########.fr       */
+/*   Updated: 2023/06/05 17:49:45 by hlabouit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,12 +62,19 @@ void	check_errors(int ac, char **av)
 	}
 }
 
+void	catch_confirmation(int signal)
+{
+	if (signal == SIGUSR1)
+		ft_putstr_fd("message was sent successfully\n", 1);
+}
+
 int	main(int ac, char **av)
 {
 	int		pid;
 	char	*message;
 
 	check_errors(ac, av);
+	signal(SIGUSR1, catch_confirmation);
 	pid = ft_atoi(av[1]);
 	message = av[2];
 	client(pid, message);

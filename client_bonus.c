@@ -6,7 +6,7 @@
 /*   By: hlabouit <hlabouit@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/01 15:40:42 by hlabouit          #+#    #+#             */
-/*   Updated: 2023/06/05 02:37:49 by hlabouit         ###   ########.fr       */
+/*   Updated: 2023/06/05 17:56:46 by hlabouit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	client(int pid, char *message)
 	int		j;
 
 	i = 0;
-	while (message[i])
+	while (i <= ft_strlen(message))
 	{
 		j = 0;
 		byte = convert_to_binary(message[i]);
@@ -62,12 +62,19 @@ void	check_errors(int ac, char **av)
 	}
 }
 
+void	catch_confirmation(int signal)
+{
+	if (signal == SIGUSR1)
+		ft_putstr_fd("message was sent successfully\n", 1);
+}
+
 int	main(int ac, char **av)
 {
 	int		pid;
 	char	*message;
 
 	check_errors(ac, av);
+	signal(SIGUSR1, catch_confirmation);
 	pid = ft_atoi(av[1]);
 	message = av[2];
 	client(pid, message);

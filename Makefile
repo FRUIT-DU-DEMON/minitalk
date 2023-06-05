@@ -6,7 +6,7 @@
 #    By: hlabouit <hlabouit@student.1337.ma>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/06/04 00:32:53 by hlabouit          #+#    #+#              #
-#    Updated: 2023/06/05 02:53:52 by hlabouit         ###   ########.fr        #
+#    Updated: 2023/06/05 15:35:14 by hlabouit         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -52,7 +52,7 @@ clean:
 
 fclean: clean
 	@$(MAKE) fclean -C libft
-	@rm -f $(NAME1) $(NAME2)
+	@rm -f $(NAME1) $(NAME2) $(NAME1_BNS) $(NAME2_BNS)
 
 re: fclean all
 
