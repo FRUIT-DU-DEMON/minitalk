@@ -6,7 +6,7 @@
 /*   By: hlabouit <hlabouit@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/03 22:52:49 by hlabouit          #+#    #+#             */
-/*   Updated: 2023/06/03 23:24:48 by hlabouit         ###   ########.fr       */
+/*   Updated: 2023/06/05 02:17:12 by hlabouit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	assemble_bytes(char *byte, int *i, int start, int bits)
 	*i = 0;
 	while (start < bits)
 	{
-		c = convert_to_decimal(ft_atoi(byte, start));
+		c = convert_to_decimal(atoi_demo(byte, start));
 		write(1, &c, 1);
 		start = start + 8;
 	}
@@ -75,17 +75,4 @@ int	convert_to_decimal(int binary)
 		i++;
 	}
 	return (decimal);
-}
-
-int	pwr(int number, int power)
-{
-	int	result;
-
-	result = 1;
-	while (power)
-	{
-		result = result * number;
-		power--;
-	}
-	return (result);
 }

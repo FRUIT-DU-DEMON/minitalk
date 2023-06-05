@@ -1,38 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   useful_functions2.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hlabouit <hlabouit@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/31 19:48:01 by hlabouit          #+#    #+#             */
-/*   Updated: 2023/06/04 21:53:31 by hlabouit         ###   ########.fr       */
+/*   Created: 2023/06/05 02:16:58 by hlabouit          #+#    #+#             */
+/*   Updated: 2023/06/05 02:17:24 by hlabouit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "minitalk.h"
 
-int	ft_atoi(const char *str)
+int	pwr(int number, int power)
+{
+	int	result;
+
+	result = 1;
+	while (power)
+	{
+		result = result * number;
+		power--;
+	}
+	return (result);
+}
+
+long	atoi_demo(const char *str, int start)
 {
 	int		i;
 	long	nb;
-	int		sign;
 
-	i = 0;
+	i = start;
 	nb = 0;
-	sign = 1;
-	while (str[i] == 32 || (str[i] >= 9 && str[i] <= 13))
-		i++;
-	if (str[i] == '+' || str[i] == '-')
-	{
-		if (str[i] == '-')
-			sign *= -1;
-		i++;
-	}
-	while (str[i] && ft_isdigit(str[i]))
+	while (i < start + 8)
 	{
 		nb = nb * 10 + str[i] - '0';
 		i++;
 	}
-	return (nb * sign);
+	return (nb);
 }

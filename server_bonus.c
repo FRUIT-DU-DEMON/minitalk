@@ -6,7 +6,7 @@
 /*   By: hlabouit <hlabouit@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/01 16:51:19 by hlabouit          #+#    #+#             */
-/*   Updated: 2023/06/04 17:02:19 by hlabouit         ###   ########.fr       */
+/*   Updated: 2023/06/05 02:26:00 by hlabouit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@ void	server(int signal, siginfo_t *info, void *context)
 {
 	static char	byte[33];
 	static int	i = 0;
-	int			c;
 
+	(void)context;
 	if (g_pid != info->si_pid)
 	{
 		i = 0;
@@ -45,8 +45,8 @@ int	main(void)
 	pid = getpid();
 	ft_putnbr_fd(pid, 1);
 	ft_putstr_fd("\n", 1);
-	sig_a.sa_sigaction = server;
 	sig_a.sa_flags = SA_SIGINFO;
+	sig_a.sa_sigaction = server;
 	sigaction(SIGUSR1, &sig_a, NULL);
 	sigaction(SIGUSR2, &sig_a, NULL);
 	while (1)

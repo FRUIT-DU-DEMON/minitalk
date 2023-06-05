@@ -6,7 +6,7 @@
 /*   By: hlabouit <hlabouit@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/24 19:29:53 by hlabouit          #+#    #+#             */
-/*   Updated: 2023/06/04 17:07:23 by hlabouit         ###   ########.fr       */
+/*   Updated: 2023/06/05 02:36:54 by hlabouit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,6 @@ int	main(void)
 	sig_a.sa_sigaction = server;
 	sigaction(SIGUSR1, &sig_a, NULL);
 	sigaction(SIGUSR2, &sig_a, NULL);
-
 	pid = getpid();
 	ft_putnbr_fd(pid, 1);
 	ft_putstr_fd("\n", 1);

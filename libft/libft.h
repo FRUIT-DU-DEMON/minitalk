@@ -6,7 +6,7 @@
 /*   By: hlabouit <hlabouit@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/20 01:36:18 by hlabouit          #+#    #+#             */
-/*   Updated: 2023/06/04 00:35:51 by hlabouit         ###   ########.fr       */
+/*   Updated: 2023/06/05 01:59:18 by hlabouit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 # include <fcntl.h>
 
 int		ft_strlen(char *s);
-long	ft_atoi(const char *str, int start);
+int		ft_atoi(const char *str);
 int		ft_isdigit(int c);
 void	ft_putstr_fd(char *s, int fd);
 void	ft_putnbr_fd(int n, int fd);
